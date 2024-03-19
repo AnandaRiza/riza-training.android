@@ -5,6 +5,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/componentHeader"
         layout="@layout/component_dashboard_header"/>
+
+    <include
+        android:id="@+id/componentMenu"
+        layout="@layout/fragment_menu_dashboard"
+        app:layout_constraintTop_toBottomOf="@+id/componentHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

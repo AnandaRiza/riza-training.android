@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardBackgroundColor="#10C2DA"
+    >
+
+    <LinearLayout
+        android:paddingVertical="16dp"
+        android:paddingHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvSavingType"
+            tools:text="Tabungan Wadi'ah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/tvAccountNumber"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/white"
+            tools:text="0603214997"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvAccountBalance"
+                android:layout_marginTop="6dp"
+                android:textColor="@color/white"
+                tools:text="Rp80.999.213.213"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:paddingVertical="4dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_catching_pokemon_24"
+                />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

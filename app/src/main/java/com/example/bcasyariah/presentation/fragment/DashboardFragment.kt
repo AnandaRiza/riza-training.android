@@ -12,13 +12,16 @@ import com.example.bcasyariah.base.BaseFragment
 import com.example.bcasyariah.databinding.FragmentDashboardBinding
 import com.example.bcasyariah.databinding.FragmentHistoryBinding
 import com.example.bcasyariah.model.AccountNumberModel
+import com.example.bcasyariah.model.MenuDashboard
 import com.example.bcasyariah.model.MenuDashboardModel
 import com.example.bcasyariah.model.PromoModel
 import com.example.bcasyariah.presentation.fragment.adapter.AccountNumberAdapter
 import com.example.bcasyariah.presentation.fragment.adapter.DashboardMenuAdapter
 import com.example.bcasyariah.presentation.fragment.adapter.PromoAdapter
 import com.example.bcasyariah.presentation.viewmodel.DashboardViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
 
     private val viewModel : DashboardViewModel by viewModels()
@@ -54,7 +57,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
 
     private fun observeViewModel(){
         viewModel.homeMenu.observe(viewLifecycleOwner){
-            setupViewMenu(it)
+            setupViewMenu(it.data)
         }
 
         viewModel.accNum.observe(viewLifecycleOwner){
@@ -62,9 +65,10 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
         }
     }
 
-    private fun setupViewMenu(data: List<MenuDashboardModel>){
+    private fun setupViewMenu(data: List<MenuDashboard>?){
+
         menuAdapter = DashboardMenuAdapter(
-            menuData = data,
+            menuData = data ?: listOf(),
             context = binding.root.context
 
         )
@@ -73,7 +77,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding>() {
                 _, _, position, _ ->
             Toast.makeText(
                 binding.root.context,
-                data[position].menuName,
+                data?.get(position)?.namaMenu,
                 Toast.LENGTH_SHORT).show(
             )
         }
